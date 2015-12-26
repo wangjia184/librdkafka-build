@@ -1,0 +1,9 @@
+language: csharp
+
+os:
+   - osx
+
+script:
+    - ./build-darwin.sh
+
+# TODO: publish nuget package somewhere
