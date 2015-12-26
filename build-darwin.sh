@@ -13,4 +13,16 @@ popd
 mkdir -p package-darwin/runtimes/osx/native
 cp librdkafka/src/librdkafka.1.dylib package-darwin/runtimes/osx/native/
 
-mono nuget.exe pack librdkafka.nuspec -NoPackageAnalysis -Properties TargetOS=Darwin -BasePath package-darwin
+if [ "$VERSION" = "" ]
+then
+    VERSION=0.9.1-ci-$TRAVIS_BUILD_NUMBER
+fi
+
+echo "Version: $VERSION"
+
+mono nuget.exe pack librdkafka.nuspec -Version $VERSION -NoPackageAnalysis -Properties TargetOS=Darwin -BasePath package-darwin
+
+if [ ! "$NUGET_API_KEY" = "" ]
+then
+    mono nuget.exe push RdKafka.Internal.librdkafka-Darwin.$VERSION.nupkg -ApiKey $NUGET_API_KEY
+fi
