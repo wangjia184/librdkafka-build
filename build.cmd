@@ -11,27 +11,27 @@ echo Downloading nuget.exe
 :build
 
 echo Nuget restore
-@nuget restore librdkafka/win32/librdkafka.sln
+@nuget restore librdkafka/win32/librdkafka.sln || exit /b
 
-@msbuild librdkafka/win32/librdkafka.sln /property:Configuration=Release /property:Platform=Win32
-@msbuild librdkafka/win32/librdkafka.sln /property:Configuration=Release /property:Platform=x64
+@msbuild librdkafka/win32/librdkafka.sln /property:Configuration=Release /property:Platform=Win32 || exit /b
+@msbuild librdkafka/win32/librdkafka.sln /property:Configuration=Release /property:Platform=x64 || exit /b
 
-if not exist package-win\runtimes\win7-x86\native md package-win\runtimes\win7-x86\native
-if not exist package-win\runtimes\win7-x64\native md package-win\runtimes\win7-x64\native
+if not exist package-win\runtimes\win7-x86\native md package-win\runtimes\win7-x86\native || exit /b
+if not exist package-win\runtimes\win7-x64\native md package-win\runtimes\win7-x64\native || exit /b
 
-copy librdkafka\win32\Release\librdkafka.dll package-win\runtimes\win7-x86\native
-copy librdkafka\win32\Release\zlib.dll package-win\runtimes\win7-x86\native
+copy librdkafka\win32\Release\librdkafka.dll package-win\runtimes\win7-x86\native || exit /b
+copy librdkafka\win32\Release\zlib.dll package-win\runtimes\win7-x86\native || exit /b
 
-copy librdkafka\win32\x64\Release\librdkafka.dll package-win\runtimes\win7-x64\native
-copy librdkafka\win32\x64\Release\zlib.dll package-win\runtimes\win7-x64\native
+copy librdkafka\win32\x64\Release\librdkafka.dll package-win\runtimes\win7-x64\native || exit /b
+copy librdkafka\win32\x64\Release\zlib.dll package-win\runtimes\win7-x64\native || exit /b
 
 if defined APPVEYOR_BUILD_VERSION (
-nuget.exe pack librdkafka.nuspec -Version %APPVEYOR_BUILD_VERSION% -NoPackageAnalysis -Properties TargetOS=Windows -BasePath package-win
+nuget.exe pack librdkafka.nuspec -Version %APPVEYOR_BUILD_VERSION% -NoPackageAnalysis -Properties TargetOS=Windows -BasePath package-win || exit /b
 ) else (
-nuget.exe pack librdkafka.nuspec -NoPackageAnalysis -Properties TargetOS=Windows -BasePath package-win
+nuget.exe pack librdkafka.nuspec -NoPackageAnalysis -Properties TargetOS=Windows -BasePath package-win || exit /b
 )
 
-if defined NUGET_API_KEY and defined APPVEYOR_BUILD_VERSION (
+if defined NUGET_API_KEY if defined APPVEYOR_BUILD_VERSION (
 echo Uploading nuget package
-@nuget.exe push RdKafka.Internal.librdkafka-Windows.%APPVEYOR_BUILD_VERSION%.nupkg -ApiKey %NUGET_API_KEY%
+@nuget.exe push RdKafka.Internal.librdkafka-Windows.%APPVEYOR_BUILD_VERSION%.nupkg -ApiKey %NUGET_API_KEY% || exit /b
 )
