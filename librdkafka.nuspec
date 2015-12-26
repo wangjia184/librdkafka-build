@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+    <metadata>
+        <id>RdKafka.Internal.librdkafka-$TargetOS$</id>
+        <version>0.9.1-pre</version>
+        <authors>-</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>librdkafka build package - $TargetOS$</description>
+    </metadata>
+    <files>
+        <file src="**" />
+    </files>
+</package>
