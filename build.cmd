@@ -9,7 +9,6 @@ echo Downloading nuget.exe
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/%NUGET_VERSION%/nuget.exe' -OutFile nuget.exe"
 
 :build
-C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat
 
 echo Nuget restore
 @nuget restore librdkafka/win32/librdkafka.sln
