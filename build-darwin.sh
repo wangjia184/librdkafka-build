@@ -11,7 +11,7 @@ CFLAGS="-I/usr/local/opt/openssl/include" make
 popd
 
 mkdir -p package-darwin/runtimes/osx/native
-cp librdkafka/src/librdkafka.1.dylib package-darwin/runtimes/osx/native/
+cp librdkafka/src/librdkafka.1.dylib package-darwin/runtimes/osx/native/librdkafka.dylib
 
 if [ "$VERSION" = "" ]
 then
