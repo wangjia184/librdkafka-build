@@ -5,7 +5,7 @@ if [ ! -e nuget.exe ]; then
 fi
 
 pushd librdkafka
-GCC=gcc-4.8 CXXFLAGS=-m32 LDFLAGS=-m32 CFLAGS="-m32 -I/usr/local/opt/openssl/include" ./configure
+GCC=gcc-4.8 CXXFLAGS="-arch i386 -arch x86_64" LDFLAGS="-arch i386 -arch x86_64" CFLAGS="-arch i386 -arch x86_64 -I/usr/local/opt/openssl/include" ./configure
 make clean
 make
 popd
