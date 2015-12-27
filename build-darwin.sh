@@ -5,9 +5,9 @@ if [ ! -e nuget.exe ]; then
 fi
 
 pushd librdkafka
-./configure
+GCC=gcc-4.8 CXXFLAGS=-m32 LDFLAGS=-m32 CFLAGS="-m32 -I/usr/local/opt/openssl/include" ./configure
 make clean
-CFLAGS="-I/usr/local/opt/openssl/include" make
+make
 popd
 
 OSX_RUNTIMES="osx osx.10.11-x64 osx.10.10-x64 osx.10.9-x64"
