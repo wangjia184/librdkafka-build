@@ -10,8 +10,12 @@ make clean
 CFLAGS="-I/usr/local/opt/openssl/include" make
 popd
 
-mkdir -p package-darwin/runtimes/osx/native
-cp librdkafka/src/librdkafka.1.dylib package-darwin/runtimes/osx/native/librdkafka.dylib
+OSX_RUNTIMES="osx osx.10.11-x64 osx.10.10-x64 osx.10.9-x64"
+for RUNTIME in $OSX_RUNTIMES
+do
+    mkdir -p package-darwin/runtimes/$RUNTIME/native
+    cp librdkafka/src/librdkafka.1.dylib package-darwin/runtimes/$RUNTIME/native/librdkafka.dylib
+done
 
 if [ "$VERSION" = "" ]
 then
