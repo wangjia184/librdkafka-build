@@ -12,6 +12,7 @@ echo Downloading nuget.exe
 
 echo Applying patches
 cd librdkafka
+echo git reset --hard HEAD
 git reset --hard HEAD
 if %errorlevel% neq 0 exit /b %errorlevel%
 echo git apply ../0001-Statically-link-OpenSSL-and-MSVCR-on-Windows.patch
