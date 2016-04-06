@@ -1,0 +1,75 @@
+From c2e62ab868866f0b2edafcda78afe06445576ea6 Mon Sep 17 00:00:00 2001
+From: Andreas Heider <andreas@heider.io>
+Date: Wed, 6 Apr 2016 22:09:37 +0100
+Subject: [PATCH] Statically link OpenSSL and MSVCR on Windows
+
+---
+ win32/librdkafka.vcxproj | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/win32/librdkafka.vcxproj b/win32/librdkafka.vcxproj
+index 12f95fc..a3d2d60 100644
+--- a/win32/librdkafka.vcxproj
++++ b/win32/librdkafka.vcxproj
+@@ -71,22 +71,22 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <LinkIncremental>true</LinkIncremental>
+     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\OpenSSL-Win32\include</IncludePath>
+-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\OpenSSL-Win32\lib\VC</LibraryPath>
++    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\OpenSSL-Win32\lib\VC\static</LibraryPath>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+     <LinkIncremental>true</LinkIncremental>
+     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\OpenSSL-Win64\include</IncludePath>
+-    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);C:\OpenSSL-Win64\lib\VC</LibraryPath>
++    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);C:\OpenSSL-Win64\lib\VC\static</LibraryPath>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <LinkIncremental>false</LinkIncremental>
+     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\OpenSSL-Win32\include</IncludePath>
+-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\OpenSSL-Win32\lib\VC</LibraryPath>
++    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);C:\OpenSSL-Win32\lib\VC\static</LibraryPath>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+     <LinkIncremental>false</LinkIncremental>
+     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\OpenSSL-Win64\include</IncludePath>
+-    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);C:\OpenSSL-Win64\lib\VC</LibraryPath>
++    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);C:\OpenSSL-Win64\lib\VC\static</LibraryPath>
+   </PropertyGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <ClCompile>
+@@ -97,6 +97,7 @@
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+       <AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions>
++      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -113,6 +114,7 @@
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+       <AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions>
++      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -129,6 +131,7 @@
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBRDKAFKA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -147,6 +150,7 @@
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBRDKAFKA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+-- 
+2.6.3.windows.1
+

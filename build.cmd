@@ -10,6 +10,12 @@ echo Downloading nuget.exe
 
 :build
 
+echo Patching static linking
+cd librdkafka
+git reset --hard HEAD
+git apply ../0001-Statically-link-OpenSSL-and-MSVCR-on-Windows.patch
+cd ..
+
 echo Nuget restore
 @nuget restore librdkafka/win32/librdkafka.sln || exit /b
 
