@@ -11,7 +11,7 @@ make
 popd
 
 mkdir -p package-linux/runtimes/linux-x64/native
-cp librdkafka/src/librdkafka.1.so package-linux/runtimes/linux-x64/native/librdkafka.so
+cp librdkafka/src/librdkafka.so.1 package-linux/runtimes/linux-x64/native/librdkafka.so
 
 if [ "$VERSION" = "" ]
 then
