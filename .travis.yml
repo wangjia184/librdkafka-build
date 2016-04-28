@@ -2,8 +2,8 @@ language: csharp
 
 os:
    - osx
+   - linux
 
 script:
-    - ./build-darwin.sh
-
-# TODO: publish nuget package somewhere
+    - if [ "$TRAVIS_OS_NAME" == "osx" ]; ./build-darwin.sh
+    - if [ "$TRAVIS_OS_NAME" == "linux" ]; ./build.sh
