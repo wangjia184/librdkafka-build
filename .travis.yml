@@ -5,5 +5,5 @@ os:
    - linux
 
 script:
-    - if [ "$TRAVIS_OS_NAME" == "osx" ]; ./build-darwin.sh
-    - if [ "$TRAVIS_OS_NAME" == "linux" ]; ./build.sh
+    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then ./build-darwin.sh; fi
+    - if [ "$TRAVIS_OS_NAME" == "linux" ]; then ./build.sh; fi
