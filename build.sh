@@ -24,5 +24,5 @@ mono nuget.exe pack librdkafka.nuspec -Version $VERSION -NoPackageAnalysis -Prop
 
 if [ ! "$NUGET_API_KEY" = "" ]
 then
-    mono nuget.exe push RdKafka.Internal.librdkafka-Linux.$VERSION.nupkg -ApiKey $NUGET_API_KEY
+    mono nuget.exe push RdKafka.Internal.librdkafka-Linux.$VERSION.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
 fi

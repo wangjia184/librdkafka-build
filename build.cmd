@@ -46,5 +46,5 @@ nuget.exe pack librdkafka.nuspec -NoPackageAnalysis -Properties TargetOS=Windows
 
 if defined NUGET_API_KEY if defined APPVEYOR_BUILD_VERSION (
 echo Uploading nuget package
-@nuget.exe push RdKafka.Internal.librdkafka-Windows.%APPVEYOR_BUILD_VERSION%.nupkg -ApiKey %NUGET_API_KEY% || exit /b
+@nuget.exe push RdKafka.Internal.librdkafka-Windows.%APPVEYOR_BUILD_VERSION%.nupkg -ApiKey %NUGET_API_KEY% -Source https://api.nuget.org/v3/index.json || exit /b
 )
