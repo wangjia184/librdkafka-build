@@ -10,7 +10,7 @@ make clean
 make
 popd
 
-OSX_RUNTIMES="osx osx.10.11-x64 osx.10.10-x64 osx.10.9-x64"
+OSX_RUNTIMES="osx"
 for RUNTIME in $OSX_RUNTIMES
 do
     mkdir -p package-darwin/runtimes/$RUNTIME/native
