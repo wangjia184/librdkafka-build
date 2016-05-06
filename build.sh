@@ -13,8 +13,15 @@ popd
 mkdir -p package-linux/runtimes/debian-x64/native
 cp librdkafka/src/librdkafka.so.1 package-linux/runtimes/debian-x64/native/librdkafka.so
 
+pushd librdkafka
+make clean
+popd
+
 docker pull centos:7
 docker run -t -v $(pwd):/build centos:7 /bin/sh -c "cd /build && ./build-docker.sh"
+
+mkdir -p package-linux/runtimes/rhel-x64/native
+cp librdkafka/src/librdkafka.so.1 package-linux/runtimes/rhel-x64/native/librdkafka.so
 
 if [ "$VERSION" = "" ]
 then
