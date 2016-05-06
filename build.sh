@@ -14,7 +14,7 @@ mkdir -p package-linux/runtimes/debian-x64/native
 cp librdkafka/src/librdkafka.so.1 package-linux/runtimes/debian-x64/native/librdkafka.so
 
 docker pull centos:7
-docker run -t -v $(pwd):/build centos:7 /bin/sh -c "cd /build && ./build-docker.sh"
+docker run -t -v $(pwd):/build centos:7 /bin/sh -c "ls /; ls /build; cd /build && /build/build-docker.sh"
 
 if [ "$VERSION" = "" ]
 then
