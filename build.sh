@@ -10,8 +10,11 @@ make clean
 make
 popd
 
-mkdir -p package-linux/runtimes/linux-x64/native
-cp librdkafka/src/librdkafka.so.1 package-linux/runtimes/linux-x64/native/librdkafka.so
+mkdir -p package-linux/runtimes/debian-x64/native
+cp librdkafka/src/librdkafka.so.1 package-linux/runtimes/debian-x64/native/librdkafka.so
+
+docker pull centos/centos7
+docker run -t -v .:/build centos/centos7 /bin/sh -c "cd build && ./build-docker.sh"
 
 if [ "$VERSION" = "" ]
 then
