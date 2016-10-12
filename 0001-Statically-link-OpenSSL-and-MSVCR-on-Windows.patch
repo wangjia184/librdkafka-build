@@ -1,6 +1,6 @@
-From 5e7e9aa356fddf193dc49a9f31cc7d73a4d3d5d5 Mon Sep 17 00:00:00 2001
+From 77df12366ae250e3ed873ff26f03f252ed4ab05a Mon Sep 17 00:00:00 2001
 From: Andreas Heider <andreas@heider.io>
-Date: Wed, 6 Apr 2016 22:28:10 +0100
+Date: Wed, 12 Oct 2016 22:31:34 +0100
 Subject: [PATCH] Statically link OpenSSL and MSVCR on Windows
 
 ---
@@ -8,7 +8,7 @@ Subject: [PATCH] Statically link OpenSSL and MSVCR on Windows
  1 file changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/win32/librdkafka.vcxproj b/win32/librdkafka.vcxproj
-index d28c0aa..c89db20 100644
+index 5336f21..cc8902c 100644
 --- a/win32/librdkafka.vcxproj
 +++ b/win32/librdkafka.vcxproj
 @@ -72,22 +72,22 @@
@@ -71,5 +71,5 @@ index d28c0aa..c89db20 100644
      <Link>
        <SubSystem>Windows</SubSystem>
 -- 
-2.6.3.windows.1
+2.4.9 (Apple Git-60)
 
