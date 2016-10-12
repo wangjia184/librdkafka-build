@@ -1,6 +1,6 @@
 install:
-  - appveyor DownloadFile https://slproweb.com/download/Win64OpenSSL-1_0_2h.exe
-  - ps: Start-Process Win64OpenSSL-1_0_2h.exe -ArgumentList "/silent /verysilent /sp- /suppressmsgboxes"
+  - appveyor DownloadFile https://slproweb.com/download/Win64OpenSSL-1_0_2j.exe
+  - ps: Start-Process Win64OpenSSL-1_0_2j.exe -ArgumentList "/silent /verysilent /sp- /suppressmsgboxes"
   - cmd: git submodule update --init --recursive
 
 build_script:
