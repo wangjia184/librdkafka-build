@@ -19,6 +19,10 @@ echo git apply ../0001-Statically-link-OpenSSL-and-MSVCR-on-Windows.patch --igno
 git apply ../0001-Statically-link-OpenSSL-and-MSVCR-on-Windows.patch --ignore-whitespace
 echo git apply ../0002-Fix-linking-of-rdkafka_consumer_example_cpp.patch --ignore-whitespace
 git apply ../0002-Fix-linking-of-rdkafka_consumer_example_cpp.patch --ignore-whitespace
+echo git apply ../0003-Fix-linking-of-win-x64-tests.patch --ignore-whitespace
+git apply ../0003-Fix-linking-of-win-x64-tests.patch --ignore-whitespace
+echo git apply ../0004-Add-missing-include-path-to-rdkafka_consumer_example.patch --ignore-whitespace
+git apply ../0004-Add-missing-include-path-to-rdkafka_consumer_example.patch --ignore-whitespace
 if %errorlevel% neq 0 exit /b %errorlevel%
 cd ..
 

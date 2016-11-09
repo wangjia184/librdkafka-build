@@ -1,0 +1,32 @@
+From 81be155c6202e57b5174315ffed6564d78b332ee Mon Sep 17 00:00:00 2001
+From: Andreas Heider <andreas@heider.io>
+Date: Wed, 9 Nov 2016 21:03:36 +0000
+Subject: [PATCH 4/4] Add missing include path to rdkafka_consumer_example_cpp
+
+---
+ win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj b/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj
+index 1d65969..7919a33 100644
+--- a/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj
++++ b/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj
+@@ -106,6 +106,7 @@
+       <Optimization>Disabled</Optimization>
+       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+       <SDLCheck>true</SDLCheck>
++      <AdditionalIncludeDirectories>$(SolutionDir)/../src-cpp</AdditionalIncludeDirectories>
+     </ClCompile>
+     <Link>
+       <SubSystem>Console</SubSystem>
+@@ -145,6 +146,7 @@
+       <IntrinsicFunctions>true</IntrinsicFunctions>
+       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+       <SDLCheck>true</SDLCheck>
++      <AdditionalIncludeDirectories>$(SolutionDir)/../src-cpp</AdditionalIncludeDirectories>
+     </ClCompile>
+     <Link>
+       <SubSystem>Console</SubSystem>
+-- 
+2.4.9 (Apple Git-60)
+
