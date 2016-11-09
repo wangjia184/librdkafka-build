@@ -23,6 +23,8 @@ echo git apply ../0003-Fix-linking-of-win-x64-tests.patch --ignore-whitespace
 git apply ../0003-Fix-linking-of-win-x64-tests.patch --ignore-whitespace
 echo git apply ../0004-Add-missing-include-path-to-rdkafka_consumer_example.patch --ignore-whitespace
 git apply ../0004-Add-missing-include-path-to-rdkafka_consumer_example.patch --ignore-whitespace
+echo git apply ../0005-Fix-x64-lib-paths-for-rdkafka_consumer_example_cpp.patch --ignore-whitespace
+git apply ../0005-Fix-x64-lib-paths-for-rdkafka_consumer_example_cpp.patch --ignore-whitespace
 if %errorlevel% neq 0 exit /b %errorlevel%
 cd ..
 
