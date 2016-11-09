@@ -25,7 +25,7 @@ cp librdkafka/src/librdkafka.so.1 package-linux/runtimes/rhel-x64/native/librdka
 
 if [ "$VERSION" = "" ]
 then
-    VERSION=0.9.1-ci-$TRAVIS_BUILD_NUMBER
+    VERSION=0.9.2-ci-$TRAVIS_BUILD_NUMBER
 fi
 
 echo "Version: $VERSION"

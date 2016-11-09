@@ -19,7 +19,7 @@ done
 
 if [ "$VERSION" = "" ]
 then
-    VERSION=0.9.1-ci-$TRAVIS_BUILD_NUMBER
+    VERSION=0.9.2-ci-$TRAVIS_BUILD_NUMBER
 fi
 
 echo "Version: $VERSION"
