@@ -1,0 +1,41 @@
+From e16541b3a0447cc71d867562b715842f5daed665 Mon Sep 17 00:00:00 2001
+From: Andreas Heider <andreas@heider.io>
+Date: Wed, 9 Nov 2016 20:57:30 +0000
+Subject: [PATCH 2/2] Fix linking of rdkafka_consumer_example_cpp
+
+---
+ .../rdkafka_consumer_example_cpp.vcxproj                            | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj b/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj
+index a0952a3..1d65969 100644
+--- a/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj
++++ b/win32/rdkafka_consumer_example_cpp/rdkafka_consumer_example_cpp.vcxproj
+@@ -110,6 +110,8 @@
+     <Link>
+       <SubSystem>Console</SubSystem>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
++      <AdditionalDependencies>librdkafkacpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalLibraryDirectories>$(SolutionDir)\$(ConfigurationName)</AdditionalLibraryDirectories>
+     </Link>
+   </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+@@ -149,6 +151,8 @@
+       <EnableCOMDATFolding>true</EnableCOMDATFolding>
+       <OptimizeReferences>true</OptimizeReferences>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
++      <AdditionalDependencies>librdkafkacpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
++      <AdditionalLibraryDirectories>$(SolutionDir)\$(ConfigurationName)</AdditionalLibraryDirectories>
+     </Link>
+   </ItemDefinitionGroup>
+   <ItemGroup>
+@@ -161,4 +165,4 @@
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+-</Project>
+\ No newline at end of file
++</Project>
+-- 
+2.4.9 (Apple Git-60)
+
