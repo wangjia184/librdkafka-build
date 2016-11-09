@@ -1,6 +1,6 @@
-From 4ce097ad48fc2b9831e28b3f9947ca46421d85aa Mon Sep 17 00:00:00 2001
+From 0b6a6cfea81f2f8e7d09256d31c7d134d96ed305 Mon Sep 17 00:00:00 2001
 From: Andreas Heider <andreas@heider.io>
-Date: Wed, 12 Oct 2016 22:47:27 +0100
+Date: Wed, 9 Nov 2016 20:27:19 +0000
 Subject: [PATCH] Statically link OpenSSL and MSVCR on Windows
 
 ---
