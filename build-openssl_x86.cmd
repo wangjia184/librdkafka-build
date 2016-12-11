@@ -28,5 +28,10 @@ nmake -f ms/nt.mak
 REM nmake -f ms/nt.mak test 
 nmake -f ms/nt.mak install
 
+echo copy /Y %var%\openssl_dist\x86\lib\libeay32.lib %var%\lib\x86\libeay32MT.lib
+copy /Y %var%\openssl_dist\x86\lib\libeay32.lib %var%\lib\x86\libeay32MT.lib
+echo copy /Y %var%\openssl_dist\x86\lib\ssleay32.lib %var%\lib\x86\ssleay32MT.lib
+copy /Y %var%\openssl_dist\x86\lib\ssleay32.lib %var%\lib\x86\ssleay32MT.lib
+
 
 PAUSE

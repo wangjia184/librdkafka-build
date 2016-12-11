@@ -22,7 +22,7 @@ git clean -f
 git apply ../0000-Statically-link-Zlib.patch --ignore-whitespace
 
 nmake -f  win32/Makefile.msc clean
-nmake -f  win32/Makefile.msc LOC="-DASMV -DASMINF" OBJA="inffas32.obj match686.obj" 
+nmake -f  win32/Makefile.msc LOC="-DASMV -DASMINF" OBJA="inffas32.obj match686.obj"
 nmake -f  win32/Makefile.msc test
 copy /Y zlib.lib %var%\lib\x86\zlib.lib
 

@@ -38,10 +38,9 @@ if not exist package-win\runtimes\win7-x86\native md package-win\runtimes\win7-x
 if not exist package-win\runtimes\win7-x64\native md package-win\runtimes\win7-x64\native || exit /b
 
 copy librdkafka\win32\Release\librdkafka.dll package-win\runtimes\win7-x86\native || exit /b
-copy librdkafka\win32\Release\zlib.dll package-win\runtimes\win7-x86\native || exit /b
 
 copy librdkafka\win32\x64\Release\librdkafka.dll package-win\runtimes\win7-x64\native || exit /b
-copy librdkafka\win32\x64\Release\zlib.dll package-win\runtimes\win7-x64\native || exit /b
+
 
 if defined APPVEYOR_BUILD_VERSION (
 nuget.exe pack librdkafka.nuspec -Version %APPVEYOR_BUILD_VERSION% -NoPackageAnalysis -Properties TargetOS=Windows -BasePath package-win || exit /b
