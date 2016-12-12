@@ -17,6 +17,10 @@ CALL "build-zlib_x86.cmd"
 
 
 
+echo git clone librdkafka
+git clone -q --branch=0.9.2.x https://github.com/edenhill/librdkafka.git
+
+
 IF EXIST nuget.exe goto build
 echo Downloading nuget.exe
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://dist.nuget.org/win-x86-commandline/%NUGET_VERSION%/nuget.exe' -OutFile nuget.exe"
