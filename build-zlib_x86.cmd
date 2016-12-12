@@ -11,11 +11,7 @@ cd zlib
 
 
 git reset --hard HEAD
-git checkout master
-
-git reset --hard origin/master
-
-
+git checkout  tags/v1.2.8
 
 git clean -f
 
@@ -26,4 +22,4 @@ nmake -f  win32/Makefile.msc LOC="-DASMV -DASMINF" OBJA="inffas32.obj match686.o
 nmake -f  win32/Makefile.msc test
 copy /Y zlib.lib %var%\lib\x86\zlib.lib
 
-PAUSE
+cd %var%

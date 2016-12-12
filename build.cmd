@@ -1,11 +1,17 @@
 ::@echo off
 
+cd %~dp0
+
 echo git clone OpenSSL
 git clone -q --branch=OpenSSL_1_0_2-stable https://github.com/openssl/openssl.git
 CALL "build-openssl_x64.cmd"
 CALL "build-openssl_x86.cmd"
+CALL "build-zlib_x64.cmd"
+CALL "build-zlib_x86.cmd"
 
-cd %~dp0
+echo git clone zlib
+git clone -q --branch=master https://github.com/madler/zlib.git
+
 
 SETLOCAL
 SET NUGET_VERSION=latest

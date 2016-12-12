@@ -31,4 +31,4 @@ copy /Y %var%\openssl_dist\x64\lib\libeay32.lib %var%\lib\x64\libeay32MT.lib
 echo copy /Y %var%\openssl_dist\x64\lib\ssleay32.lib %var%\lib\x64\ssleay32MT.lib
 copy /Y %var%\openssl_dist\x64\lib\ssleay32.lib %var%\lib\x64\ssleay32MT.lib
 
-cd ..
+cd %var%

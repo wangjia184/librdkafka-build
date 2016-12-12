@@ -8,12 +8,8 @@ mkdir lib\x64
 
 cd zlib
 
-
-
 git reset --hard HEAD
-git checkout master
-
-git reset --hard origin/master
+git checkout  tags/v1.2.8
 
 git clean -f
 
@@ -25,4 +21,4 @@ nmake -f  win32/Makefile.msc test
 
 copy /Y zlib.lib %var%\lib\x64\zlib.lib
 
-PAUSE
+cd %var%
