@@ -1,4 +1,8 @@
 ::@echo off
+
+CALL "build-openssl_x64.cmd"
+CALL "build-openssl_x86.cmd"
+
 cd %~dp0
 
 SETLOCAL

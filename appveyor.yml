@@ -1,7 +1,14 @@
+environment:
+  NASM_URL: http://www.nasm.us/pub/nasm/releasebuilds/2.12.02/win64/nasm-2.12.02-win64.zip
+
 install:
-  - appveyor DownloadFile https://slproweb.com/download/Win64OpenSSL-1_0_2j.exe
-  - ps: Start-Process Win64OpenSSL-1_0_2j.exe -ArgumentList "/silent /verysilent /sp- /suppressmsgboxes"
-  - cmd: git submodule update --init --recursive
+  # install NASM
+  - appveyor DownloadFile "%NASM_URL%" -FileName "c:\nasm.zip"
+  - 7z x "nasm.zip" > nul
+  - ps: $env:path="C:\Program Files (x86)\nasm;$($env:path)"
+  - move nasm-* NASM
+  - set PATH=%PATH%;c:\NASM;
+  - nasm -v
 
 build_script:
   - cmd: build.cmd
