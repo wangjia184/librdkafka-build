@@ -1,2 +1,4 @@
 openssl_dist
 nuget.exe
+lib
+package-win

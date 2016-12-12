@@ -1,6 +1,6 @@
 ::@echo off
 
-echo Cloning OpenSSL
+echo git clone OpenSSL
 git clone -q --branch=OpenSSL_1_0_2-stable https://github.com/openssl/openssl.git
 CALL "build-openssl_x64.cmd"
 CALL "build-openssl_x86.cmd"

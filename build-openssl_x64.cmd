@@ -11,7 +11,6 @@ cd openssl
 
 
 git reset --hard HEAD
-dir
 git checkout -qf OpenSSL_1_0_2-stable
 
 
