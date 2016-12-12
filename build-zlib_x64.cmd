@@ -3,8 +3,7 @@ CALL "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd6
 SET var=%cd%
 ECHO %var%
 
-mkdir lib
-mkdir lib\x64
+
 
 cd zlib
 

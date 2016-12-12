@@ -5,6 +5,10 @@ cd %~dp0
 SETLOCAL
 SET NUGET_VERSION=latest
 
+mkdir lib
+mkdir lib\x64
+mkdir lib\x86
+
 echo git clone OpenSSL
 git clone -q --branch=OpenSSL_1_0_2-stable https://github.com/openssl/openssl.git
 CALL "build-openssl_x64.cmd"

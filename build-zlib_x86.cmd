@@ -3,12 +3,8 @@ CALL "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
 SET var=%cd%
 ECHO %var%
 
-mkdir lib
-mkdir lib\x86
 
 cd zlib
-
-
 
 git reset --hard HEAD
 git checkout  tags/v1.2.8
