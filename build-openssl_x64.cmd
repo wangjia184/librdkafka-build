@@ -9,12 +9,10 @@ ECHO %var%
 
 cd openssl
 
-cd
-dir
-
+git clone -q --branch=OpenSSL_1_0_2-stable https://github.com/openssl/openssl.git
 git reset --hard HEAD
-git fetch
-git checkout OpenSSL_1_0_2-stable
+git checkout -qf OpenSSL_1_0_2-stable
+
 
 mkdir %var%\openssl_dist
 mkdir %var%\openssl_dist\x64
