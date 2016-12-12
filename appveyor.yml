@@ -4,7 +4,7 @@ environment:
 install:
   # install NASM
   - appveyor DownloadFile "%NASM_URL%" -FileName "c:\nasm.zip"
-  - 7z x "c:\nasm.zip" > nul
+  - 7z x "c:\nasm.zip" -oc:\
   - move nasm-* NASM
   - set PATH=%PATH%;c:\NASM;
   - nasm -v
