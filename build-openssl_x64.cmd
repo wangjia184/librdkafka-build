@@ -9,7 +9,8 @@ ECHO %var%
 
 cd openssl
 
-
+cd
+dir
 
 git reset --hard HEAD
 git fetch
