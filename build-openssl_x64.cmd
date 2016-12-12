@@ -14,8 +14,6 @@ cd openssl
 git reset --hard HEAD
 git checkout OpenSSL_1_0_2-stable
 
-git reset --hard origin/OpenSSL_1_0_2-stable
-
 mkdir %var%\openssl_dist
 mkdir %var%\openssl_dist\x64
 
