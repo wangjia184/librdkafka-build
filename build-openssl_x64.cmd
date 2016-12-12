@@ -11,6 +11,7 @@ cd openssl
 
 git clone -q --branch=OpenSSL_1_0_2-stable https://github.com/openssl/openssl.git
 git reset --hard HEAD
+dir
 git checkout -qf OpenSSL_1_0_2-stable
 
 
